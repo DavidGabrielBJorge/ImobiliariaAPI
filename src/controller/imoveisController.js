@@ -2,6 +2,14 @@ import imoveis from "../models/imovel.js";
 
 class ImovelController{
 
+    /*
+    {
+    "valor": 24000,
+    "endereco": "Rua das flores",
+    "pessoa": "Clara",
+    "acao": "Vender"
+    }
+    */
     static listarTodos = (req, res) =>{
         imoveis.find((err,imoveis)=>{
         res.status(200).json(imoveis);

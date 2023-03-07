@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import momgoose from "mongoose";
 
 const pessoaSchema = new mongoose.Schema({
         id:{type: String},
