@@ -8,6 +8,18 @@ class ImovelController{
         })
     }
 
+    static listarPorId = (req,res) => {
+        const id = req.params.id;
+        
+        imoveis.findById(id).exec((err, livros) => {
+            if(err){
+                res.status(400).send({message:`${err.message} - Id do imovel não localizado.`})
+            }else{
+                res.status(200).send(livros);
+            }
+        })
+    }
+
     static cadastrar = (req, res) => {
         let imovel = new imoveis(req.body);
         imovel.save((err)=>{
