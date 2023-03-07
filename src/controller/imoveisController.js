@@ -12,9 +12,21 @@ class ImovelController{
         let imovel = new imoveis(req.body);
         imovel.save((err)=>{
             if(err){
-                res.status(500).send({message: `${err.message} - falha ao cadastrar imovel!`})
+                res.status(500).send({message: `${err.message} - falha ao cadastrar imovel!`});
             }else{
-                res.status(201).send(imovel.toJSON())
+                res.status(201).send(imovel.toJSON());
+            }
+        })
+    }
+
+    static atualizar = (req, res) => {
+        const id = req.params.id;
+
+        imoveis.findByIdAndUpdate(id, {$set: req.body}, (err) =>{
+            if(!err){
+                res.status(200).send({message: 'Imovel atualizado com sucesso'});
+            }else{
+                res.status(500).send({message: err.message});
             }
         })
     }
