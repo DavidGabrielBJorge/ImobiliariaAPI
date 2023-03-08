@@ -11,7 +11,7 @@ class ImovelController{
     }
     */
     static listarTodos = (req, res) =>{
-        imoveis.find((err,imoveis)=>{
+        imoveis.find().populate("pessoa").exec((err,imoveis)=>{
         res.status(200).json(imoveis);
         })
     }
@@ -19,7 +19,7 @@ class ImovelController{
     static listarPorId = (req,res) => {
         const id = req.params.id;
         
-        imoveis.findById(id).exec((err, livros) => {
+        imoveis.findById(id).populate("pessoa","nome").exec((err, livros) => {
             if(err){
                 res.status(400).send({message:`${err.message} - Id do imovel não localizado.`})
             }else{
@@ -30,6 +30,14 @@ class ImovelController{
 
     static cadastrar = (req, res) => {
         let imovel = new imoveis(req.body);
+        //Para resolver o bug do ID de não conseguir encontrar o ID da pessoa, deve remover os espaços em branco
+        const FKPessoa = req.body.pessoa
+
+        FKPessoa.trim();
+
+        req.body.pessoa=FKPessoa
+
+
         imovel.save((err)=>{
             if(err){
                 res.status(500).send({message: `${err.message} - falha ao cadastrar imovel!`});
