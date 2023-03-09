@@ -2,6 +2,13 @@ import enderecos from "../models/endereco.js";
 
 class enderecoController{
 
+    /*
+    {
+        "cidade": "São Paulo",
+        "bairro": "centro",
+        "rua": "Rua da Matina"
+    }
+    */
     static listarTodos = (req, res) =>{
         enderecos.find((err,enderecos)=>{
         res.status(200).json(enderecos);

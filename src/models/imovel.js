@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const imovelSchema = new mongoose.Schema({
     id: {type: String},
     valor: {type: Number, required: true},
-    endereco: {type: String, required: true},
+    endereco: {type: mongoose.Schema.Types.ObjectId, ref: 'enderecos', required: true},
     pessoa: {type: mongoose.Schema.Types.ObjectId, ref: 'pessoas', required: true},
     acao: {type: String, required: true}
 });

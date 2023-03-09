@@ -11,7 +11,7 @@ class ImovelController{
     }
     */
     static listarTodos = (req, res) =>{
-        imoveis.find().populate("pessoa").exec((err,imoveis)=>{
+        imoveis.find().populate("pessoa").populate("endereco").exec((err,imoveis)=>{
         res.status(200).json(imoveis);
         })
     }
@@ -19,7 +19,7 @@ class ImovelController{
     static listarPorId = (req,res) => {
         const id = req.params.id;
         
-        imoveis.findById(id).populate("pessoa","nome").exec((err, livros) => {
+        imoveis.findById(id).populate("pessoa","nome").populate("endereco","rua").exec((err, livros) => {
             if(err){
                 res.status(400).send({message:`${err.message} - Id do imovel não localizado.`})
             }else{
@@ -32,10 +32,16 @@ class ImovelController{
         let imovel = new imoveis(req.body);
         //Para resolver o bug do ID de não conseguir encontrar o ID da pessoa, deve remover os espaços em branco
         const FKPessoa = req.body.pessoa
+        const FKEndereco = req.body.endereco
 
         FKPessoa.trim();
+        FKEndereco.trim();
+
+        console.log(req.body.pessoa)
 
         req.body.pessoa=FKPessoa
+        req.body.endereco=FKEndereco
+        
 
 
         imovel.save((err)=>{

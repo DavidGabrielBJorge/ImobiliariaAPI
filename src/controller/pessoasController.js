@@ -2,6 +2,13 @@ import pessoas from "../models/pessoa.js";
 
 class PessoaController{
 
+    /*
+    {
+        "nome": "Maria Clara",
+        "cpf": 444455555,
+        "idade": 32
+    }
+    */
     static listarTodos = (req, res) =>{
         pessoas.find((err,pessoas)=>{
         res.status(200).json(pessoas);
