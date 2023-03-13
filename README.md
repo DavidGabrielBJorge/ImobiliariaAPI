@@ -32,21 +32,21 @@ Esse projeto é uma API simples para imobiliária, possuindo 3 tabelas sendo ela
 ```
 #### Retorna um endereço específico
 ```http
-  GET http://localhost:4000/imoveis/id
+  GET http://localhost:4000/enderecos/id
 ```
 
 #### Criar endereço 
 ```http
-  POST http://localhost:4000/imoveis/
+  POST http://localhost:4000/enderecos/
 ```
 
 #### Alterar endereço 
 ```http
-  PUT http://localhost:4000/imoveis/id
+  PUT http://localhost:4000/enderecos/id
 ```
 #### Deletar endereço 
 ```http
-  DELETE http://localhost:4000/imoveis/id
+  DELETE http://localhost:4000/enderecos/id
 ```
 ### Tabela de pessoas
 
