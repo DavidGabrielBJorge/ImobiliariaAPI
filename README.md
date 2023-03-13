@@ -1,8 +1,18 @@
 
 # API Imobiliária
 
-Esse projeto é uma API simples para imobiliária, possuindo 3 tabelas sendo elas: pessoa, endereço e imóvel. Foi usado o banco MongoDB para armazenar os dados e para fazer as requisições é necessário utilizar uma feramenta API Client, como o Postman por exemplo. 
+Esse projeto é uma API simples para imobiliária, possuindo 3 tabelas sendo elas: pessoa, endereço e imóvel. Foi usado o banco MongoDB para armazenar os dados e para fazer as requisições é necessário utilizar uma ferramenta API Client, como o Postman por exemplo. 
 
+## Tecnologias utilizadas:
+<div>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" width="40" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" width="40" height="40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg" width="40" height="40"/>
+          
+          
+          
+</div>
 
 ## Documentação da API
 
